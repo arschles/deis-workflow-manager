@@ -7,7 +7,7 @@ include versioning.mk
 
 DEV_ENV_IMAGE := quay.io/deis/go-dev:0.9.0
 DEV_ENV_WORK_DIR := /go/src/github.com/deis/${SHORT_NAME}
-DEV_ENV_CMD := docker run --rm -e CGO_ENABLED=0 -v ${CURDIR}:${DEV_ENV_WORK_DIR} -w ${DEV_ENV_WORK_DIR} ${DEV_ENV_IMAGE}
+DEV_ENV_CMD := docker run --rm -v ${CURDIR}:${DEV_ENV_WORK_DIR} -w ${DEV_ENV_WORK_DIR} ${DEV_ENV_IMAGE}
 
 # Common flags passed into Go's linker.
 LDFLAGS := "-s -X main.version=${VERSION}"
